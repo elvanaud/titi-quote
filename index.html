@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<title>Les phrases de TITI</title>	
+		<link rel="stylesheet" href="style.css">
+		<meta charset="UTF-8">
+	</head>
+
+	<body>
+	<p>TITI QUOTES</p>
+	<img id="btn" onClick="doStuff()" src="titi2.png"/>
+	<div id="quote">lorem</div>
+
+	</body>
+	
+	<script>
+	var img = document.getElementById("btn");
+	var quote = document.getElementById("quote");
+	
+	var quotes = ["Perdu !", "C'est du foutage de gueule", "Pi quart il se les gèles"];
+	
+	function doStuff(){
+		img.classList.remove("spinEffect");
+        setTimeout(function(){img.classList.add("spinEffect")},0);
+        
+        var nbQuotes = quotes.length;
+        var rId = Math.floor(Math.random()*(nbQuotes-1)) //select a random quote except the last in the array (last one shown)
+        tmp = quotes[rId];
+        quote.textContent= tmp;
+        
+        quotes[rId] = quotes[nbQuotes-1]; //puts the last shown quote in the last index of the array
+        quotes[nbQuotes-1] = tmp;
+	}
+	</script>
+</html>
